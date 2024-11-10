@@ -10,7 +10,7 @@ export default function Navbar() {
           <div className="flex items-center">
             <Link to="/" className="flex items-center space-x-2">
               <Home className="h-6 w-6 text-indigo-600" />
-              <span className="font-bold text-xl text-gray-900">ArchPlans</span>
+              <span className="font-bold text-xl text-gray-900">HouseDesigns</span>
             </Link>
             <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
               <Link to="/explore" className="text-gray-900 hover:text-gray-500 px-3 py-2 rounded-md text-sm font-medium">
