@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { Search, Filter } from 'lucide-react';
+import ListingCard from '../components/ListingCard';
 
 type FilterOptions = {
   bedrooms: string;
@@ -17,44 +17,68 @@ export default function Explore() {
     {
       id: 1,
       title: "Modern Villa Design",
+      builder: "Apex Architects",
       beds: 4,
       baths: 3,
+      livingRooms: 2,
+      garages: 2,
       size: 232,
+      logoUrl: "https://placehold.co/200x80?text=Apex+Architects",
     },
     {
       id: 2,
       title: "Coastal Retreat",
+      builder: "Ocean View Designs",
       beds: 3,
       baths: 2,
+      livingRooms: 1,
+      garages: 1,
       size: 186,
+      logoUrl: "https://placehold.co/200x80?text=Ocean+View",
     },
     {
       id: 3,
       title: "Urban Townhouse",
+      builder: "Metropolitan Homes",
       beds: 4,
       baths: 3,
+      livingRooms: 2,
+      garages: 1,
       size: 205,
+      logoUrl: "https://placehold.co/200x80?text=Metropolitan",
     },
     {
       id: 4,
       title: "Mountain Lodge",
+      builder: "Alpine Builders",
       beds: 5,
       baths: 4,
+      livingRooms: 3,
+      garages: 3,
       size: 279,
+      logoUrl: "https://placehold.co/200x80?text=Alpine",
     },
     {
       id: 5,
       title: "Garden Cottage",
+      builder: "Green Space Designs",
       beds: 2,
       baths: 2,
+      livingRooms: 1,
+      garages: 1,
       size: 139,
+      logoUrl: "https://placehold.co/200x80?text=Green+Space",
     },
     {
       id: 6,
       title: "Luxury Estate",
+      builder: "Elite Homes",
       beds: 6,
       baths: 5,
+      livingRooms: 4,
+      garages: 4,
       size: 372,
+      logoUrl: "https://placehold.co/200x80?text=Elite+Homes",
     },
   ];
 
@@ -109,30 +133,7 @@ export default function Explore() {
       {/* Results Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {listings.map((listing) => (
-          <Link key={listing.id} to={`/listing/${listing.id}`} className="group">
-            <div className="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-200 ease-in-out group-hover:transform group-hover:scale-[1.02]">
-              <div className="relative">
-                <img
-                  src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                  alt="House design"
-                  className="h-48 w-full object-cover"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">{listing.title}</h3>
-                <div className="flex items-center text-sm text-gray-500 mb-4">
-                  <span>{listing.beds} Beds</span>
-                  <span className="mx-2">•</span>
-                  <span>{listing.baths} Baths</span>
-                  <span className="mx-2">•</span>
-                  <span>{listing.size} m²</span>
-                </div>
-                <div className="flex items-center justify-end">
-                  <span className="text-sm text-indigo-600 group-hover:text-indigo-500">View Details →</span>
-                </div>
-              </div>
-            </div>
-          </Link>
+          <ListingCard key={listing.id} {...listing} />
         ))}
       </div>
     </div>
