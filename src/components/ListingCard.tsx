@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Bed, Bath, Sofa, Car, Maximize2, Building2 } from 'lucide-react';
+import { Bed, Bath, Sofa, Car, Maximize2 } from 'lucide-react';
 
 type ListingCardProps = {
   id: number;
@@ -17,7 +17,6 @@ type ListingCardProps = {
 export default function ListingCard({
   id,
   title,
-  builder,
   beds,
   baths,
   livingRooms,
@@ -41,12 +40,6 @@ export default function ListingCard({
         </div>
         <div className="flex-1 bg-white p-6 flex flex-col justify-between">
           <div className="flex-1">
-            <div className="flex items-center space-x-2 mb-2">
-              <Building2 className="h-4 w-4 text-indigo-600" />
-              <p className="text-sm font-medium text-indigo-600">
-                {builder}
-              </p>
-            </div>
             <div className="block">
               <p className="text-xl font-semibold text-gray-900">
                 {title}
@@ -71,13 +64,15 @@ export default function ListingCard({
               </div>
             </div>
           </div>
-          <div className="mt-6 flex items-center justify-between">
-            <img
-              src={logoUrl}
-              alt={`${builder} logo`}
-              className="h-8 w-auto object-contain"
-            />
-            <span className="text-sm text-indigo-600 group-hover:text-indigo-500">
+          <div className="mt-6 flex items-center justify-between border-t pt-4">
+            <div className="flex-1">
+              <img
+                src={logoUrl}
+                alt="Builder logo"
+                className="h-12 w-48 object-contain object-left"
+              />
+            </div>
+            <span className="text-sm text-indigo-600 group-hover:text-indigo-500 whitespace-nowrap ml-4">
               View Details →
             </span>
           </div>
