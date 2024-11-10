@@ -3,6 +3,33 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Home as HomeIcon, Shield, Sparkles } from 'lucide-react';
 
 export default function Home() {
+  const featuredHomes = [
+    {
+      id: 1,
+      title: "The Hillside Retreat",
+      style: "Modern Design",
+      beds: 4,
+      baths: 3,
+      size: 232, // 2,500 sqft converted to m²
+    },
+    {
+      id: 2,
+      title: "Coastal Haven",
+      style: "Contemporary Design",
+      beds: 3,
+      baths: 2,
+      size: 186,
+    },
+    {
+      id: 3,
+      title: "Urban Oasis",
+      style: "Modern Design",
+      beds: 4,
+      baths: 3,
+      size: 205,
+    },
+  ];
+
   return (
     <div className="space-y-20">
       {/* Hero Section */}
@@ -50,8 +77,8 @@ export default function Home() {
         </div>
 
         <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {[1, 2, 3].map((item) => (
-            <Link key={item} to={`/listing/${item}`} className="group">
+          {featuredHomes.map((home) => (
+            <Link key={home.id} to={`/listing/${home.id}`} className="group">
               <div className="flex flex-col rounded-lg shadow-lg overflow-hidden transition-transform duration-200 ease-in-out group-hover:transform group-hover:scale-[1.02]">
                 <div className="flex-shrink-0">
                   <img
@@ -63,14 +90,14 @@ export default function Home() {
                 <div className="flex-1 bg-white p-6 flex flex-col justify-between">
                   <div className="flex-1">
                     <p className="text-sm font-medium text-indigo-600">
-                      Modern Design
+                      {home.style}
                     </p>
                     <div className="block mt-2">
                       <p className="text-xl font-semibold text-gray-900">
-                        The Hillside Retreat
+                        {home.title}
                       </p>
                       <p className="mt-3 text-base text-gray-500">
-                        4 Beds • 3 Baths • 2,500 sqft
+                        {home.beds} Beds • {home.baths} Baths • {home.size} m²
                       </p>
                     </div>
                   </div>

@@ -1,9 +1,39 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { Download, Share2, Heart, Check } from 'lucide-react';
+import { 
+  Download, 
+  Share2, 
+  Heart, 
+  Check, 
+  Bed, 
+  Bath, 
+  Sofa, 
+  Car, 
+  LayoutTemplate, 
+  Maximize2
+} from 'lucide-react';
+
+const SpecItem = ({ icon: Icon, label, value }: { icon: any, label: string, value: string | number }) => (
+  <div className="flex flex-col items-center text-center">
+    <div className="p-3 bg-indigo-50 rounded-full mb-2">
+      <Icon className="h-6 w-6 text-indigo-600" />
+    </div>
+    <p className="text-gray-500 text-sm">{label}</p>
+    <p className="font-semibold">{value}</p>
+  </div>
+);
 
 export default function ListingDetails() {
   const { id } = useParams();
+
+  const specifications = [
+    { icon: Bed, label: 'Bedrooms', value: '4' },
+    { icon: Bath, label: 'Bathrooms', value: '3' },
+    { icon: Sofa, label: 'Living Areas', value: '2' },
+    { icon: Car, label: 'Garage Spaces', value: '2' },
+    { icon: LayoutTemplate, label: 'Floor Plans', value: '2' },
+    { icon: Maximize2, label: 'Total Area', value: '232 m²' },
+  ];
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -43,24 +73,11 @@ export default function ListingDetails() {
 
           {/* Specifications */}
           <div className="bg-white rounded-lg shadow-sm p-6">
-            <h2 className="text-xl font-semibold mb-4">Specifications</h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              <div>
-                <p className="text-gray-500">Bedrooms</p>
-                <p className="font-semibold">4</p>
-              </div>
-              <div>
-                <p className="text-gray-500">Bathrooms</p>
-                <p className="font-semibold">3</p>
-              </div>
-              <div>
-                <p className="text-gray-500">Square Feet</p>
-                <p className="font-semibold">2,500</p>
-              </div>
-              <div>
-                <p className="text-gray-500">Stories</p>
-                <p className="font-semibold">2</p>
-              </div>
+            <h2 className="text-xl font-semibold mb-6">Specifications</h2>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+              {specifications.map((spec, index) => (
+                <SpecItem key={index} {...spec} />
+              ))}
             </div>
           </div>
 

@@ -13,6 +13,51 @@ export default function Explore() {
     style: '',
   });
 
+  const listings = [
+    {
+      id: 1,
+      title: "Modern Villa Design",
+      beds: 4,
+      baths: 3,
+      size: 232,
+    },
+    {
+      id: 2,
+      title: "Coastal Retreat",
+      beds: 3,
+      baths: 2,
+      size: 186,
+    },
+    {
+      id: 3,
+      title: "Urban Townhouse",
+      beds: 4,
+      baths: 3,
+      size: 205,
+    },
+    {
+      id: 4,
+      title: "Mountain Lodge",
+      beds: 5,
+      baths: 4,
+      size: 279,
+    },
+    {
+      id: 5,
+      title: "Garden Cottage",
+      beds: 2,
+      baths: 2,
+      size: 139,
+    },
+    {
+      id: 6,
+      title: "Luxury Estate",
+      beds: 6,
+      baths: 5,
+      size: 372,
+    },
+  ];
+
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       {/* Search and Filter Header */}
@@ -63,8 +108,8 @@ export default function Explore() {
 
       {/* Results Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {[1, 2, 3, 4, 5, 6].map((item) => (
-          <Link key={item} to={`/listing/${item}`} className="group">
+        {listings.map((listing) => (
+          <Link key={listing.id} to={`/listing/${listing.id}`} className="group">
             <div className="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-200 ease-in-out group-hover:transform group-hover:scale-[1.02]">
               <div className="relative">
                 <img
@@ -74,13 +119,13 @@ export default function Explore() {
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">Modern Villa Design</h3>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">{listing.title}</h3>
                 <div className="flex items-center text-sm text-gray-500 mb-4">
-                  <span>4 Beds</span>
+                  <span>{listing.beds} Beds</span>
                   <span className="mx-2">•</span>
-                  <span>3 Baths</span>
+                  <span>{listing.baths} Baths</span>
                   <span className="mx-2">•</span>
-                  <span>2,500 sqft</span>
+                  <span>{listing.size} m²</span>
                 </div>
                 <div className="flex items-center justify-end">
                   <span className="text-sm text-indigo-600 group-hover:text-indigo-500">View Details →</span>
