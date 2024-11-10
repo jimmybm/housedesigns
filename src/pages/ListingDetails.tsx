@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { Star, Download, Share2, Heart, Check } from 'lucide-react';
+import { Download, Share2, Heart, Check } from 'lucide-react';
 
 export default function ListingDetails() {
   const { id } = useParams();
@@ -11,11 +11,6 @@ export default function ListingDetails() {
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-gray-900 mb-4">Modern Villa Design</h1>
         <div className="flex flex-wrap items-center gap-4">
-          <div className="flex items-center">
-            <Star className="h-5 w-5 text-yellow-400 fill-current" />
-            <span className="ml-1 text-gray-600">4.9 (128 reviews)</span>
-          </div>
-          <span className="text-gray-400">•</span>
           <span className="text-gray-600">Plan #MOD-{id}</span>
         </div>
       </div>
@@ -85,8 +80,7 @@ export default function ListingDetails() {
         {/* Right Column - Purchase Card */}
         <div className="lg:col-span-1">
           <div className="bg-white rounded-lg shadow-sm p-6 sticky top-8">
-            <div className="flex items-center justify-between mb-6">
-              <h2 className="text-2xl font-bold">$1,299</h2>
+            <div className="flex items-center justify-end mb-6">
               <button className="p-2 rounded-full text-gray-400 hover:text-gray-600">
                 <Heart className="h-6 w-6" />
               </button>
@@ -95,7 +89,7 @@ export default function ListingDetails() {
             <div className="space-y-4">
               <button className="w-full bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 flex items-center justify-center">
                 <Download className="h-5 w-5 mr-2" />
-                Purchase Plan
+                Request Information
               </button>
               
               <button className="w-full border border-gray-300 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-50 flex items-center justify-center">

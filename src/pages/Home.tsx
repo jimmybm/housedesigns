@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Home as HomeIcon, Star, Shield } from 'lucide-react';
+import { ArrowRight, Home as HomeIcon, Shield, Sparkles } from 'lucide-react';
 
 export default function Home() {
   return (
@@ -51,41 +51,37 @@ export default function Home() {
 
         <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {[1, 2, 3].map((item) => (
-            <div key={item} className="flex flex-col rounded-lg shadow-lg overflow-hidden">
-              <div className="flex-shrink-0">
-                <img
-                  className="h-48 w-full object-cover"
-                  src={`https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80`}
-                  alt="House design"
-                />
-              </div>
-              <div className="flex-1 bg-white p-6 flex flex-col justify-between">
-                <div className="flex-1">
-                  <p className="text-sm font-medium text-indigo-600">
-                    Modern Design
-                  </p>
-                  <div className="block mt-2">
-                    <p className="text-xl font-semibold text-gray-900">
-                      The Hillside Retreat
-                    </p>
-                    <p className="mt-3 text-base text-gray-500">
-                      4 Beds • 3 Baths • 2,500 sqft
-                    </p>
-                  </div>
+            <Link key={item} to={`/listing/${item}`} className="group">
+              <div className="flex flex-col rounded-lg shadow-lg overflow-hidden transition-transform duration-200 ease-in-out group-hover:transform group-hover:scale-[1.02]">
+                <div className="flex-shrink-0">
+                  <img
+                    className="h-48 w-full object-cover"
+                    src={`https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80`}
+                    alt="House design"
+                  />
                 </div>
-                <div className="mt-6 flex items-center justify-between">
-                  <div className="flex items-center">
-                    <div className="flex items-center text-yellow-400">
-                      <Star className="h-5 w-5 fill-current" />
-                      <span className="ml-1 text-gray-500">4.9</span>
+                <div className="flex-1 bg-white p-6 flex flex-col justify-between">
+                  <div className="flex-1">
+                    <p className="text-sm font-medium text-indigo-600">
+                      Modern Design
+                    </p>
+                    <div className="block mt-2">
+                      <p className="text-xl font-semibold text-gray-900">
+                        The Hillside Retreat
+                      </p>
+                      <p className="mt-3 text-base text-gray-500">
+                        4 Beds • 3 Baths • 2,500 sqft
+                      </p>
                     </div>
                   </div>
-                  <div className="text-xl font-bold text-gray-900">
-                    $1,299
+                  <div className="mt-6">
+                    <span className="text-sm text-indigo-600 group-hover:text-indigo-500">
+                      View Details →
+                    </span>
                   </div>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
@@ -111,7 +107,7 @@ export default function Home() {
                 description: 'Safe and secure transactions with money-back guarantee.',
               },
               {
-                icon: Star,
+                icon: Sparkles,
                 title: 'Quality Assured',
                 description: 'All designs are reviewed and verified by our expert team.',
               },

@@ -1,17 +1,15 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Search, Filter, Star } from 'lucide-react';
+import { Search, Filter } from 'lucide-react';
 
 type FilterOptions = {
   bedrooms: string;
-  priceRange: string;
   style: string;
 };
 
 export default function Explore() {
   const [filters, setFilters] = useState<FilterOptions>({
     bedrooms: '',
-    priceRange: '',
     style: '',
   });
 
@@ -39,7 +37,7 @@ export default function Explore() {
       </div>
 
       {/* Filter Options */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
         <select
           value={filters.bedrooms}
           onChange={(e) => setFilters({ ...filters, bedrooms: e.target.value })}
@@ -49,17 +47,6 @@ export default function Explore() {
           <option value="2">2+ Bedrooms</option>
           <option value="3">3+ Bedrooms</option>
           <option value="4">4+ Bedrooms</option>
-        </select>
-
-        <select
-          value={filters.priceRange}
-          onChange={(e) => setFilters({ ...filters, priceRange: e.target.value })}
-          className="block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 rounded-md"
-        >
-          <option value="">Price Range</option>
-          <option value="0-1000">Under $1,000</option>
-          <option value="1000-2000">$1,000 - $2,000</option>
-          <option value="2000+">$2,000+</option>
         </select>
 
         <select
@@ -85,9 +72,6 @@ export default function Explore() {
                   alt="House design"
                   className="h-48 w-full object-cover"
                 />
-                <div className="absolute top-4 right-4 bg-white px-2 py-1 rounded-md text-sm font-semibold text-gray-900">
-                  $1,299
-                </div>
               </div>
               <div className="p-6">
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">Modern Villa Design</h3>
@@ -98,12 +82,8 @@ export default function Explore() {
                   <span className="mx-2">•</span>
                   <span>2,500 sqft</span>
                 </div>
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center">
-                    <Star className="h-5 w-5 text-yellow-400 fill-current" />
-                    <span className="ml-1 text-sm text-gray-600">4.9 (128)</span>
-                  </div>
-                  <span className="text-sm text-indigo-600">View Details →</span>
+                <div className="flex items-center justify-end">
+                  <span className="text-sm text-indigo-600 group-hover:text-indigo-500">View Details →</span>
                 </div>
               </div>
             </div>
